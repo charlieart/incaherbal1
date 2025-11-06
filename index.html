@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inca Herbal</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .logo {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeInScale 1.5s ease forwards;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .boton {
+      margin-top: 40px;
+      opacity: 0;
+      background-color: #2E7D32; /* verde natural */
+      color: #fff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      animation: aparecer 1s ease forwards;
+      animation-delay: 1.5s;
+    }
+
+    .boton:hover {
+      background-color: #1B5E20;
+      transform: scale(1.05);
+    }
+
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo-inca.jpg" alt="Inca Herbal Logo" class="logo" width="280">
+  <a href="https://wa.link/de7huk">
+    <button class="boton">Contáctanos</button>
+  </a>
+</body>
+</html>
