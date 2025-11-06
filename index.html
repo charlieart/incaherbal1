@@ -1,75 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inca Herbal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inca Herbal - Productos naturales para el bienestar y equilibrio del cuerpo. Inspirados en la sabiduría ancestral andina." />
+  <title>Inca Herbal | Productos Naturales del Perú</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      margin: 0;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      flex-direction: column;
-      font-family: "Poppins", sans-serif;
+    /* ====================== */
+    /* Animaciones generales */
+    /* ====================== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .logo {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: fadeInScale 1.5s ease forwards;
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
     }
 
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .boton {
-      margin-top: 40px;
-      opacity: 0;
-      background-color: #2E7D32; /* verde natural */
-      color: #fff;
-      border: none;
-      padding: 15px 35px;
-      font-size: 18px;
-      border-radius: 50px;
+    /* ====================== */
+    /* Estilo 3D tipo CodePen */
+    /* ====================== */
+    .card3d {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      animation: aparecer 1s ease forwards;
-      animation-delay: 1.5s;
     }
 
-    .boton:hover {
-      background-color: #1B5E20;
-      transform: scale(1.05);
+    .card3d:hover {
+      transform: rotateY(8deg) rotateX(8deg) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
-    @keyframes aparecer {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .card-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none;
     }
   </style>
 </head>
-<body>
-  <img src="logo-inca.jpg" alt="Inca Herbal Logo" class="logo" width="280">
-  <a href="https://wa.link/de7huk">
-    <button class="boton">Contáctanos</button>
+<body class="bg-emerald-50 text-gray-800 font-sans">
+
+  <!-- Pantalla de inicio con animación -->
+  <div id="splash" class="fixed inset-0 bg-white flex items-center justify-center flex-col z-50 transition-opacity duration-1000">
+    <img src="img/logo-inca.jpg" alt="Logo Inca Herbal" class="w-64 opacity-0 fade-in">
+    <button id="contactBtn" onclick="window.open('https://wa.link/de7huk','_blank')" class="hidden mt-6 bg-emerald-600 text-white px-6 py-2 rounded-full shadow-lg hover:bg-emerald-700 transition">
+      Contáctanos
+    </button>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-40">
+    <div class="container mx-auto flex items-center justify-between px-4 py-3">
+      <img src="img/logo-inca.jpg" alt="Inca Herbal Logo" class="h-12">
+      <nav class="space-x-4 text-sm md:text-base">
+        <a href="#categorias" class="hover:text-emerald-700">Categorías</a>
+        <a href="#productos" class="hover:text-emerald-700">Productos</a>
+        <a href="#contacto" class="hover:text-emerald-700">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="pt-24">
+
+    <!-- Sección de categorías -->
+    <section id="categorias" class="text-center py-12 bg-emerald-100">
+      <h2 class="text-3xl font-semibold mb-10 text-emerald-800">Categorías</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <!-- Cada tarjeta -->
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🌬️</div>
+            <p class="mt-2 font-semibold">Sistema Respiratorio</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🦴</div>
+            <p class="mt-2 font-semibold">Sistema Óseo</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🌿</div>
+            <p class="mt-2 font-semibold">Sistema Digestivo</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🧠</div>
+            <p class="mt-2 font-semibold">Sistema Nervioso</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">💧</div>
+            <p class="mt-2 font-semibold">Sistema Urinario</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🧬</div>
+            <p class="mt-2 font-semibold">Sistema Glandular</p>
+          </div>
+        </div>
+
+        <div class="card3d bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+          <div class="card-inner">
+            <div class="text-5xl">🛡️</div>
+            <p class="mt-2 font-semibold">Sistema Inmune</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel de productos -->
+    <section id="productos" class="py-12 bg-white">
+      <h2 class="text-3xl font-semibold text-center mb-8 text-emerald-800">Productos Destacados</h2>
+      <div class="carousel-container flex space-x-6 overflow-x-auto px-6 pb-4">
+        <!-- Ejemplo de producto -->
+        <div class="card3d min-w-[200px] bg-emerald-50 rounded-2xl shadow-md p-4 text-center hover:shadow-xl transition">
+          <div class="card-inner">
+            <img src="img/productos/producto1.jpg" alt="Producto 1" class="w-full h-40 object-cover rounded-xl mb-2">
+            <p class="font-semibold">Producto 1</p>
+          </div>
+        </div>
+        <div class="card3d min-w-[200px] bg-emerald-50 rounded-2xl shadow-md p-4 text-center hover:shadow-xl transition">
+          <div class="card-inner">
+            <img src="img/productos/producto2.jpg" alt="Producto 2" class="w-full h-40 object-cover rounded-xl mb-2">
+            <p class="font-semibold">Producto 2</p>
+          </div>
+        </div>
+        <div class="card3d min-w-[200px] bg-emerald-50 rounded-2xl shadow-md p-4 text-center hover:shadow-xl transition">
+          <div class="card-inner">
+            <img src="img/productos/producto3.jpg" alt="Producto 3" class="w-full h-40 object-cover rounded-xl mb-2">
+            <p class="font-semibold">Producto 3</p>
+          </div>
+        </div>
+        <!-- Repetir hasta 8 productos -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.link/de7huk" target="_blank" class="fixed bottom-6 right-6 bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition">
+    💬
   </a>
+
+  <!-- Pie de página -->
+  <footer id="contacto" class="bg-emerald-900 text-white py-6 text-center">
+    <p>© 2025 Inca Herbal. Todos los derechos reservados.</p>
+    <p class="text-sm mt-2">Inspirados en la sabiduría natural del Perú 🌿</p>
+  </footer>
+
+  <script>
+    // Animación inicial
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('#contactBtn').classList.remove('hidden');
+      }, 1500);
+      setTimeout(() => {
+        document.querySelector('#splash').style.opacity = '0';
+        setTimeout(() => document.querySelector('#splash').style.display = 'none', 1000);
+      }, 3000);
+    });
+  </script>
+
 </body>
 </html>
